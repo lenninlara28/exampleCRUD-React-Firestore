@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import "./database.js";
+
+import Formulario from "./components/Formulario";
+import Tabla from "./components/Tabla";
+import { Divider } from "@mui/material";
 
 function App() {
+  const [form, setForm] = React.useState({
+    titulo: "",
+    descripcion: "",
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 style={{ textAlign: "center" }}>CRUD-CON-REACT</h1>
+      <Formulario form={form} setForm={setForm} />
+      <Divider sx={{ marginTop: 2, marginBottom: 2 }} />
+      <Tabla form={form} setForm={setForm} />
+    </>
   );
 }
 
